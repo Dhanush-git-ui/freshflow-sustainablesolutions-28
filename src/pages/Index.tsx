@@ -3,15 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
   Droplets, 
-  CheckCircle, 
   Phone, 
-  Clock, 
+  Mail,
+  Building2,
+  FileText,
   ArrowRight,
   Recycle,
   Shield,
   CreditCard,
   Truck,
-  RotateCcw,
   Award,
   Plus
 } from "lucide-react";
@@ -30,8 +30,8 @@ const Index = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
               Pure Water, <span className="text-primary animate-float">Pure Life</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in delay-100">
-              Untouched water from 800ft to Bottle with complete automated process
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto animate-fade-in delay-100">
+              Founded in October 2023, Freshneer Foods and Services Pvt. Ltd. is Ahmedabad's leading provider of high-quality packaged drinking water solutions.
             </p>
             <Link to="/order">
               <Button size="lg" className="group">
@@ -84,20 +84,46 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Company Information */}
       <section className="py-20 bg-black/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Corporate Information</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 bg-white/5 rounded-lg backdrop-blur-sm hover:bg-white/10 transition-all group">
+              <Building2 className="text-primary mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold mb-2">Company Details</h3>
+              <p className="text-gray-300">CIN: U11040GJ2023PTC145721</p>
+              <p className="text-gray-300">GST: 24AAFCF6785R1ZR</p>
+            </div>
+            <div className="p-6 bg-white/5 rounded-lg backdrop-blur-sm hover:bg-white/10 transition-all group">
+              <Phone className="text-primary mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold mb-2">Contact Numbers</h3>
+              <p className="text-gray-300">+91 8140804662</p>
+              <p className="text-gray-300">+91 9601884545</p>
+            </div>
+            <div className="p-6 bg-white/5 rounded-lg backdrop-blur-sm hover:bg-white/10 transition-all group">
+              <Mail className="text-primary mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="font-semibold mb-2">Email</h3>
+              <p className="text-gray-300">freshneer@outlook.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">Why Choose Freshneer?</h2>
           <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[
               { icon: <Shield className="text-primary" />, title: "Supreme Quality" },
-              { icon: <CreditCard className="text-primary" />, title: "Best Pricing" },
-              { icon: <Phone className="text-primary" />, title: "On Call Order" },
-              { icon: <Award className="text-primary" />, title: "Referral Rewards" },
-              { icon: <Truck className="text-primary" />, title: "24 HRS Delivery" },
-              { icon: <RotateCcw className="text-primary" />, title: "Return Policy" },
-              { icon: <CheckCircle className="text-primary" />, title: "Product Warranty" },
-              { icon: <Plus className="text-primary" />, title: "25+ Additional Services" },
+              { icon: <CreditCard className="text-primary" />, title: "Secure UPI Payments" },
+              { icon: <Phone className="text-primary" />, title: "24/7 Support" },
+              { icon: <Award className="text-primary" />, title: "Industry Leading" },
+              { icon: <Truck className="text-primary" />, title: "Quick Delivery" },
+              { icon: <FileText className="text-primary" />, title: "Easy Orders" },
+              { icon: <Recycle className="text-primary" />, title: "Sustainable" },
+              { icon: <Plus className="text-primary" />, title: "Bulk Supply" },
             ].map((feature) => (
               <div 
                 key={feature.title} 
@@ -111,47 +137,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 4R Principles */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Our 4R Principles</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { title: "Reduce", description: "Using standard OEM equipment to reduce water wastage" },
-              { title: "Reuse", description: "Reprocess bottle cleaning discharge water" },
-              { title: "Recycle", description: "98% Recyclable PET water bottle" },
-              { title: "Recover", description: "Use reject stream for gardening and cleaning" },
-            ].map((principle) => (
-              <div 
-                key={principle.title} 
-                className="text-center p-6 bg-white/5 rounded-lg backdrop-blur-sm hover:bg-white/10 transition-all transform hover:scale-105 group"
-              >
-                <Recycle className="text-primary mx-auto mb-4 transform group-hover:rotate-180 transition-transform duration-500" size={32} />
-                <h3 className="text-xl font-semibold mb-2">{principle.title}</h3>
-                <p className="text-gray-300">{principle.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section className="py-20 bg-black/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Contact Us</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Get In Touch</h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-6">
               <div className="flex items-center space-x-4 group hover:bg-white/5 p-4 rounded-lg transition-colors">
-                <Clock className="text-primary group-hover:scale-110 transition-transform" />
+                <Building2 className="text-primary group-hover:scale-110 transition-transform" />
                 <div>
-                  <h3 className="font-semibold">Business Hours</h3>
-                  <p className="text-gray-300">24/7 Service Available</p>
+                  <h3 className="font-semibold">Head Office</h3>
+                  <p className="text-gray-300">Ahmedabad, Gujarat</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4 group hover:bg-white/5 p-4 rounded-lg transition-colors">
                 <Phone className="text-primary group-hover:scale-110 transition-transform" />
                 <div>
-                  <h3 className="font-semibold">Contact</h3>
+                  <h3 className="font-semibold">Call Us</h3>
+                  <p className="text-gray-300">+91 8140804662</p>
+                  <p className="text-gray-300">+91 9601884545</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-4 group hover:bg-white/5 p-4 rounded-lg transition-colors">
+                <Mail className="text-primary group-hover:scale-110 transition-transform" />
+                <div>
+                  <h3 className="font-semibold">Email Us</h3>
                   <p className="text-gray-300">freshneer@outlook.com</p>
                 </div>
               </div>
