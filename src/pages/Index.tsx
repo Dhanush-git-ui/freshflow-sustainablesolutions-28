@@ -13,7 +13,13 @@ import {
   CreditCard,
   Truck,
   Award,
-  Plus
+  Plus,
+  Filter,
+  Zap,
+  RefreshCw,
+  FlaskConical,
+  CheckCircle2,
+  PackageCheck
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -23,7 +29,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-32 relative overflow-hidden">
+      <section id="home" className="pt-20 pb-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 animate-pulse" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center">
@@ -44,7 +50,7 @@ const Index = () => {
       </section>
 
       {/* Products Section */}
-      <section className="py-20 bg-black/40">
+      <section id="products" className="py-20 bg-black/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">Our Products</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -69,23 +75,117 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Manufacturing Process */}
-      <section className="py-20">
+      {/* Services/Manufacturing Process Section */}
+      <section id="services" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">Manufacturing Process</h2>
-          <div className="relative group">
-            <img 
-              src="/lovable-uploads/5a8fb3dc-0152-43e8-b95d-fba24518c8cb.png" 
-              alt="Manufacturing Process" 
-              className="w-full max-w-4xl mx-auto rounded-lg shadow-2xl transition-transform group-hover:scale-[1.02]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+          <p className="text-center text-primary mb-12 text-lg">"Untouched water from 800ft to Bottle with complete automated process"</p>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                icon: <Filter className="w-8 h-8" />,
+                title: "Decontamination",
+                description: "Initial purification process"
+              },
+              {
+                icon: <FlaskConical className="w-8 h-8" />,
+                title: "Mineral Water Plant",
+                description: "Interaction with essential minerals"
+              },
+              {
+                icon: <Zap className="w-8 h-8" />,
+                title: "Sand & Carbon Filtration",
+                description: "Advanced filtration system"
+              },
+              {
+                icon: <RefreshCw className="w-8 h-8" />,
+                title: "Reverse Osmosis",
+                description: "Pure water extraction"
+              },
+              {
+                icon: <Droplets className="w-8 h-8" />,
+                title: "Mineralization",
+                description: "Adding beneficial minerals"
+              },
+              {
+                icon: <Shield className="w-8 h-8" />,
+                title: "UV Light Treatment",
+                description: "Sterilization process"
+              },
+              {
+                icon: <Recycle className="w-8 h-8" />,
+                title: "Ozonation",
+                description: "Final purification step"
+              },
+              {
+                icon: <CheckCircle2 className="w-8 h-8" />,
+                title: "Quality Check",
+                description: "Rigorous testing"
+              },
+              {
+                icon: <PackageCheck className="w-8 h-8" />,
+                title: "Packaging & Labelling",
+                description: "Safe bottling process"
+              }
+            ].map((step, index) => (
+              <div key={index} className="bg-white/5 p-6 rounded-lg backdrop-blur-sm hover:bg-white/10 transition-all group">
+                <div className="text-primary mb-4 transform group-hover:scale-110 transition-transform">
+                  {step.icon}
+                </div>
+                <h3 className="font-semibold mb-2">{step.title}</h3>
+                <p className="text-gray-400">{step.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="space-y-8">
+            <div className="bg-white/5 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4">Our Principal of 4R</h3>
+              <div className="grid md:grid-cols-4 gap-6">
+                {[
+                  {
+                    title: "Reduce",
+                    description: "Using standard OEM equipment to reduce water wastage"
+                  },
+                  {
+                    title: "Reuse",
+                    description: "Reprocess bottle cleaning discharge water"
+                  },
+                  {
+                    title: "Recycle",
+                    description: "98% Recyclable PET water bottle"
+                  },
+                  {
+                    title: "Recover",
+                    description: "Use reject stream for gardening and cleaning"
+                  }
+                ].map((principle, index) => (
+                  <div key={index} className="p-4 bg-white/5 rounded-lg">
+                    <h4 className="text-primary font-semibold mb-2">{principle.title}</h4>
+                    <p className="text-sm text-gray-400">{principle.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white/5 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4">Environmental & Social Responsibility</h3>
+              <p className="text-gray-300">
+                Freshneer Foods and Services Pvt. Ltd. has implemented various policies to promote social, environmental
+                and sustainable practices. These include hiring and paying fair wages to local workers, supporting
+                sustainable environmental practices, sponsoring and volunteering at social events, donating products to
+                NGOs and charities, educating locals about water conservation and promoting the benefits of clean water.
+                Additionally, the organization also focuses on promoting a clean and green India through initiatives such as
+                tree plantation and revenue donations to the Indian army under IAW schemes.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Company Information */}
-      <section className="py-20 bg-black/40">
+      {/* About Section */}
+      <section id="about" className="py-20 bg-black/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">Corporate Information</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -110,35 +210,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Freshneer?</h2>
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[
-              { icon: <Shield className="text-primary" />, title: "Supreme Quality" },
-              { icon: <CreditCard className="text-primary" />, title: "Secure UPI Payments" },
-              { icon: <Phone className="text-primary" />, title: "24/7 Support" },
-              { icon: <Award className="text-primary" />, title: "Industry Leading" },
-              { icon: <Truck className="text-primary" />, title: "Quick Delivery" },
-              { icon: <FileText className="text-primary" />, title: "Easy Orders" },
-              { icon: <Recycle className="text-primary" />, title: "Sustainable" },
-              { icon: <Plus className="text-primary" />, title: "Bulk Supply" },
-            ].map((feature) => (
-              <div 
-                key={feature.title} 
-                className="p-6 bg-white/5 rounded-lg backdrop-blur-sm hover:bg-white/10 transition-all transform hover:scale-105 hover:shadow-xl group"
-              >
-                <div className="mb-4 transform group-hover:scale-110 transition-transform">{feature.icon}</div>
-                <h3 className="font-semibold">{feature.title}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section className="py-20 bg-black/40">
+      <section id="contact" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">Get In Touch</h2>
           <div className="grid md:grid-cols-2 gap-12">
