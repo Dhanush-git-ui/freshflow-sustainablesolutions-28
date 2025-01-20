@@ -3,18 +3,57 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
+import { createOrder } from "@/services/api";
+import { useMutation } from "@tanstack/react-query";
 
 const Order = () => {
   const { toast } = useToast();
   const [quantity, setQuantity] = useState("1");
   const [size, setSize] = useState("1L");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const orderMutation = useMutation({
+    mutationFn: createOrder,
+    onSuccess: () => {
+      toast({
+        title: "Order Submitted Successfully",
+        description: "We'll contact you shortly to confirm your order.",
+      });
+      // Reset form
+      setQuantity("1");
+      setSize("1L");
+      setAddress("");
+      setPhone("");
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "There was an error submitting your order. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Order Submitted",
-      description: "We'll contact you shortly to confirm your order.",
-    });
+    const orderData = {
+      size,
+      quantity: parseInt(quantity),
+      delivery_address: address,
+      phone,
+      total_amount: calculateTotal(size, parseInt(quantity)),
+    };
+    orderMutation.mutate(orderData);
+  };
+
+  const calculateTotal = (size: string, qty: number) => {
+    const prices = {
+      "1L": 20,
+      "500ml": 10,
+      "200ml": 5,
+    };
+    return prices[size as keyof typeof prices] * qty;
   };
 
   return (
@@ -54,16 +93,39 @@ const Order = () => {
 
           <div className="space-y-2">
             <label className="text-sm font-medium">Delivery Address</label>
-            <Input className="bg-white/10 border-white/20" placeholder="Enter your full address" />
+            <Input 
+              className="bg-white/10 border-white/20" 
+              placeholder="Enter your full address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              required
+            />
           </div>
 
           <div className="space-y-2">
             <label className="text-sm font-medium">Contact Number</label>
-            <Input className="bg-white/10 border-white/20" type="tel" placeholder="Enter your phone number" />
+            <Input 
+              className="bg-white/10 border-white/20" 
+              type="tel" 
+              placeholder="Enter your phone number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+            />
           </div>
 
-          <Button type="submit" className="w-full">
-            Place Order
+          <div className="pt-4 border-t border-white/10">
+            <p className="text-lg font-semibold">
+              Total: ₹{calculateTotal(size, parseInt(quantity))}
+            </p>
+          </div>
+
+          <Button 
+            type="submit" 
+            className="w-full"
+            disabled={orderMutation.isPending}
+          >
+            {orderMutation.isPending ? "Placing Order..." : "Place Order"}
           </Button>
         </form>
       </div>
