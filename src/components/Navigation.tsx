@@ -6,9 +6,9 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full bg-black/90 backdrop-blur-sm z-50 shadow-sm">
+    <nav className="fixed w-full bg-black shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link 
               to="/"
@@ -17,7 +17,7 @@ const Navigation = () => {
               <img 
                 src="/lovable-uploads/98910343-c93b-41c3-9149-194ecee8927e.png" 
                 alt="Freshneer Logo" 
-                className="h-8"
+                className="h-12 w-auto"
               />
             </Link>
           </div>
