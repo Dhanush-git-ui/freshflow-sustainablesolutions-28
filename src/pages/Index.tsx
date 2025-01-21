@@ -1,19 +1,16 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import FeedbackForm from "@/components/FeedbackForm";
+import Footer from "@/components/Footer";
 import { 
   Droplets, 
   Phone, 
   Mail,
   Building2,
-  FileText,
   ArrowRight,
   Recycle,
   Shield,
-  CreditCard,
-  Truck,
-  Award,
-  Plus,
   Filter,
   Zap,
   RefreshCw,
@@ -256,6 +253,34 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Feedback Section */}
+      <section className="py-20 bg-black/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Your Opinion Matters</h2>
+              <p className="text-gray-300 mb-8">
+                We're committed to providing the best service possible. Share your experience and help us
+                improve our services.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-white/5 p-6 rounded-lg text-center">
+                  <h3 className="text-3xl font-bold text-primary mb-2">98%</h3>
+                  <p className="text-gray-300">Customer Satisfaction</p>
+                </div>
+                <div className="bg-white/5 p-6 rounded-lg text-center">
+                  <h3 className="text-3xl font-bold text-primary mb-2">10k+</h3>
+                  <p className="text-gray-300">Happy Customers</p>
+                </div>
+              </div>
+            </div>
+            <FeedbackForm />
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
