@@ -17,7 +17,7 @@ const Navigation = () => {
               <img 
                 src="/lovable-uploads/98910343-c93b-41c3-9149-194ecee8927e.png" 
                 alt="Freshneer Logo" 
-                className="h-12 w-auto"
+                className="h-16 w-auto" // Increased from h-12 to h-16
               />
             </Link>
           </div>
@@ -65,6 +65,14 @@ const Navigation = () => {
             >
               Policies
             </Link>
+            <a
+              href="https://freshneer.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-primary transition-colors"
+            >
+              Enquiry
+            </a>
             <Link
               to="/order"
               className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
@@ -137,6 +145,15 @@ const Navigation = () => {
             >
               Policies
             </Link>
+            <a
+              href="https://freshneer.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-3 py-2 text-white hover:text-primary hover:bg-white/5 rounded-md"
+              onClick={() => setIsOpen(false)}
+            >
+              Enquiry
+            </a>
             <Link
               to="/order"
               className="block px-3 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
